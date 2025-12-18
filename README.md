@@ -1,0 +1,2 @@
+# PSP Development Starter Template
+Includes everything you need to just get started after installing the [pspdev sdk][https://pspdev.github.io/] ([install here][https://pspdev.github.io/installation.html])

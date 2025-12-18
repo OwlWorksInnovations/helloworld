@@ -10,13 +10,30 @@ OUTPUT_DIR="${SCRIPT_DIR}/helloworld"
 PSP_MOUNT="${PSP_MOUNT:-/media/$(whoami)/disk}"
 PSP_GAME_DIR="${PSP_MOUNT}/PSP/GAME/helloworld"
 
-echo "Building project..."
-if [ ! -d "$BUILD_DIR" ]; then
-    echo "Error: Build directory not found. Run cmake first."
+echo "Setting up build environment..."
+# Check if PSPDEV is set
+if [ -z "${PSPDEV:-}" ]; then
+    echo "Error: PSPDEV environment variable is not set."
+    echo "Please install the PSP toolchain and set PSPDEV to point to it."
     exit 1
 fi
 
-cd "$BUILD_DIR"
+# Create build directory if it doesn't exist
+if [ ! -d "$BUILD_DIR" ]; then
+    echo "Creating build directory..."
+    mkdir -p "$BUILD_DIR"
+fi
+
+# Configure with CMake if not already configured
+if [ ! -f "$BUILD_DIR/Makefile" ]; then
+    echo "Configuring project with PSP toolchain..."
+    cd "$BUILD_DIR"
+    cmake -DCMAKE_TOOLCHAIN_FILE="$PSPDEV/psp/share/pspdev.cmake" ..
+else
+    cd "$BUILD_DIR"
+fi
+
+echo "Building project..."
 make clean && make
 
 echo "Copying files to output directory..."
