@@ -1,16 +1,16 @@
 # PSP Development Starter Template
 
-A minimal starter template for PlayStation Portable homebrew development using SDL2. This template demonstrates basic SDL2 rendering with TTF font support, perfect for starting your PSP project.
+A minimal starter template for a PSP using SDL2
 
 ## Features
 
 - SDL2 and SDL2_ttf integration
 - Automated build scripts with PSP toolchain detection
-- Auto-configuration from fresh clone
+- Auto configuration from fresh clone
 - Custom font rendering example
-- Ready-to-deploy EBOOT.PBP generation
+- Ready to deploy EBOOT.PBP generation
 
-## What It Does
+## What the template does
 
 Displays "Hello PSP!" on the PSP screen using the Orbitron font. Press START button to exit.
 
