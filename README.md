@@ -1,6 +1,6 @@
 # PSP Development Starter Template
 
-A minimal starter template for a PSP using SDL2
+A minimal starter template for a PSP using SDL2 with examples
 
 ## Features
 
@@ -12,7 +12,7 @@ A minimal starter template for a PSP using SDL2
 
 ## What the template does
 
-Displays "Hello PSP!" on the PSP screen using the Orbitron font. Press START button to exit.
+Displays "Hello PSP!" on the PSP screen using the Orbitron font and has some example games
 
 ## Prerequisites
 
