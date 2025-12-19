@@ -1,3 +1,9 @@
+/**
+ * Audio Demo for PSP
+ *
+ * Created by Claude Code (Anthropic)
+ */
+
 #include <pspkernel.h>
 #include <pspctrl.h>
 #include <stdio.h>
@@ -185,9 +191,9 @@ int main(int argc, char **argv)
     SDL_Color green = {0, 255, 0, 255};
 
     // Generate sound files
-    generateBeepSound("beep.wav", 440, 200);    // A4 note
-    generateBeepSound("beep2.wav", 880, 150);   // A5 note
-    generateBeepSound("music.wav", 523, 1000);  // C5 note (longer for "music")
+    generateBeepSound("beep.wav", 440, 200);   // A4 note
+    generateBeepSound("beep2.wav", 880, 150);  // A5 note
+    generateBeepSound("music.wav", 523, 1000); // C5 note (longer for "music")
 
     // Load sounds
     Mix_Chunk *beep1 = Mix_LoadWAV("beep.wav");

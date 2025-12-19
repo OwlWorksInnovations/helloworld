@@ -2,6 +2,8 @@
 
 An interactive audio example for PSP using SDL2_mixer, showcasing sound effects and music playback.
 
+**Created by Claude Code (Anthropic)**
+
 ## Features
 
 - SDL2, SDL2_ttf, and SDL2_mixer integration
@@ -14,6 +16,7 @@ An interactive audio example for PSP using SDL2_mixer, showcasing sound effects 
 ## What the demo does
 
 This example demonstrates PSP audio capabilities by:
+
 - Generating three different sine wave tones (440 Hz, 880 Hz, and 523 Hz) at runtime
 - Playing sound effects on button press
 - Playing/pausing/stopping background music
@@ -47,6 +50,7 @@ cd examples/audio
 ```
 
 The script automatically:
+
 - Detects and configures the PSP toolchain
 - Builds the project
 - Copies files to `audio/` directory
@@ -55,9 +59,11 @@ The script automatically:
 ## Build Scripts
 
 ### `./dist.sh` - Development Build & Deploy
+
 Builds the project and deploys to PSP if connected via USB in USB mode.
 
 **Custom PSP mount point:**
+
 ```bash
 PSP_MOUNT=/media/mydisk ./dist.sh
 ```
@@ -65,6 +71,7 @@ PSP_MOUNT=/media/mydisk ./dist.sh
 Default mount point: `/media/$(whoami)/disk`
 
 ### `./release.sh` - Release Build Only
+
 Builds the project without deploying to PSP. Output is saved to `audio/` directory.
 
 ```bash
@@ -76,6 +83,7 @@ Perfect for CI/CD pipelines or when you don't have your PSP connected.
 ## Output Files
 
 After building, you'll find in `audio/`:
+
 - `EBOOT.PBP` - PSP executable
 - `Orbitron-Regular.ttf` - Font file
 
@@ -84,7 +92,9 @@ The audio files (`beep.wav`, `beep2.wav`, `music.wav`) are generated at runtime.
 ## Technical Details
 
 ### Audio Generation
+
 The demo uses a sine wave generator to create three different tones:
+
 - **Beep 1**: 440 Hz (A4 note) - 200ms duration
 - **Beep 2**: 880 Hz (A5 note) - 150ms duration
 - **Music**: 523 Hz (C5 note) - 1000ms duration (loops)
@@ -92,11 +102,13 @@ The demo uses a sine wave generator to create three different tones:
 All sounds include fade-in/fade-out envelopes to prevent audio clicking.
 
 ### Audio Format
+
 - Sample Rate: 22050 Hz
 - Format: 16-bit signed PCM
 - Channels: Mono (sound effects) / Stereo output (mixer)
 
 ### Libraries Used
+
 - **SDL2**: Core functionality and window management
 - **SDL2_ttf**: Font rendering
 - **SDL2_mixer**: Audio playback and mixing
@@ -104,7 +116,9 @@ All sounds include fade-in/fade-out envelopes to prevent audio clicking.
 ## Troubleshooting
 
 ### "PSPDEV environment variable is not set"
+
 Make sure you've installed the PSP toolchain and set the environment variable:
+
 ```bash
 export PSPDEV=/path/to/your/pspdev
 ```
@@ -112,13 +126,17 @@ export PSPDEV=/path/to/your/pspdev
 Add it to your `~/.bashrc` or `~/.zshrc` to make it permanent.
 
 ### "PSP device not mounted"
+
 Ensure your PSP is:
+
 1. Connected via USB
 2. In USB mode (Settings → USB Connection)
 3. Mounted at `/media/$(whoami)/disk` or set `PSP_MOUNT` variable
 
 ### SDL2_mixer dependency errors
+
 The scripts automatically configure with the PSP toolchain. If you see SDL2_mixer errors:
+
 ```bash
 rm -rf build
 ./dist.sh
@@ -139,12 +157,14 @@ Make sure SDL2_mixer is installed in your PSP toolchain.
 ## Learning More
 
 This example is a great starting point for:
+
 - Game sound effects
 - Menu navigation sounds
 - Background music systems
 - Audio-based games (rhythm games, audio puzzles, etc.)
 
 For more complex audio needs, explore:
+
 - Loading MP3/OGG files with SDL2_mixer
 - Multiple simultaneous sound channels
 - Audio effects and filters
